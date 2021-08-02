@@ -14,5 +14,15 @@ def hello_world():
     return send_file('test.png')
 
 
+@app.route('/russia')
+def gdp_russia():
+    df = pd.read_csv('data/gdp.cvs')
+    fig = df[df['Country Name'] == 'Russian Federation'].iloc[0, 32:64].astype(float).plot(figsize=(50, 30),
+                                                                                           fontsize=30).get_figure()
+    fig.savefig('russia.png')
+
+    return send_file('russia.png')
+
+
 if __name__ == '__main__':
     app.run()
