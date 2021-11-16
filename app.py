@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/api')
 def api():
-    return "10$"
+    return "10$ -  bitcoin price."
 
 
 @app.route('/')
